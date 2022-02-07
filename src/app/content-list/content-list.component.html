@@ -1,0 +1,14 @@
+<h1 style="color: Green;font-size: 40px;margin-left: 7%;">MOVIES:</h1>
+<div >
+    <div *ngFor="let movie of movies; let x = index" >
+        <div [ngClass]="(x > 0) ? mycard: moviee">
+        <p style="text-align:center;"><b>ID:</b>   {{movie.id}}</p>
+        <p style="text-align:center; font-size: 25px; color: blue;background-color: aqua; "><b >MOVIE:</b>  {{movie.Movie}}</p>
+        <img style="margin-left:60px;" (click)="onClick(x)" src="{{movie.imgURL}}" height="300px" width="250px"  >
+        <p style="text-align: justify;"><b style="color:rgb(199, 77, 21); background-color: rgb(233, 233, 131);">ABOUT:</b>  {{movie.About}}</p>
+        <p ><b style="color:purple;background-color:  rgb(233, 233, 131);">BOX OFFICE COLLECTION:</b>  {{movie.Boxoffice}}</p>
+        <p ><b style="color:orangered;">DIRECTORS:<span *ngFor="let size of movie?.tags">{{" "}}{{ size }}</span></b></p>
+    </div>
+    </div>
+</div>
+

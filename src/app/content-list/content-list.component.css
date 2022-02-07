@@ -1,0 +1,19 @@
+.mycard{
+    width: 410px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    margin:4px 4px 0 0;
+    padding: 11px;
+}
+
+.moviee{
+    width: 410px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    margin: 4px 4px 0 0;
+    padding: 11px;   
+}
+
+

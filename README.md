@@ -1,4 +1,4 @@
-Made by Arsh luthra
+Made by Arsh Luthra
 Student No 0777039
 Date Modified 01/30/2022
 
