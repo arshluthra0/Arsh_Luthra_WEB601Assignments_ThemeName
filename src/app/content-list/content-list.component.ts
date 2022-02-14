@@ -9,14 +9,22 @@ export class ContentListComponent implements OnInit {
 
   moviee = "moviee";
   mycard = "mycard";
-  // Movies array containing 6 items
+  drama = "drama";
+  action = "action";
+  adventure = "adventure";
+  notype = "";
+
+  movieExists = false;
+  movieNotExists = false;
+
+
   movies = [{
     id: 1,
     Movie: "OLYMPUS HAS FALLEN",
     About: "When the president is kidnapped, a former secret service agent must use his expertise to rescue him as well as the other hostages",
     Boxoffice: "$170.3 milliom",
     imgURL:  '../../assets/img/Olympus has fallen.jpg',
-    type:  "",
+    type:  "action",
     tags: ["Creighton Rothenberger", "Katrin Benedikt"],
   },
 {
@@ -25,7 +33,7 @@ export class ContentListComponent implements OnInit {
     About: "Captain Nathan Algren hired to train the JApanese army to fight a Samurai rebellion. However, he ends up enbracing the people of Samurai culture after he gets captured by them",
     Boxoffice: "$456.8 million",
     imgURL:  '../../assets/img/Last samurai.jpg',
-    type: "" ,
+    type: "drama" ,
     tags: ["Hans Jimmer", "John Logan"],
 },
 {
@@ -34,7 +42,7 @@ export class ContentListComponent implements OnInit {
     About: "After Thanos, an intergalactic warlord, disintegrates half of the universe, the Avengers must reunite and assemble again to reinvigorate their trounced allies and restore balance",
     Boxoffice: "R$279.75 million",
     imgURL:  '../../assets/img/Avengers.jpg',
-    type:  "",
+    type:  "adventure",
     tags: ["Alan Silvesti", "Joe Russo","Anthony Russo"],
 },
 {
@@ -43,7 +51,7 @@ export class ContentListComponent implements OnInit {
     About: "Van Helsing, a legendary monster hunter, is sent to Transylvania in order to prevent Count Dracula, a terrorising being from realising evil motives.",
     Boxoffice: "$300.2 million",
     imgURL:  "../../assets/img/Van helsing.jpg",
-    type:  "",
+    type:  "action",
     tags: ["Hugh JAckman","Kate Beckinsale","Richard Roxburgh"],
 },
 {
@@ -52,7 +60,7 @@ export class ContentListComponent implements OnInit {
     About: "Dastan, a young prince, teams up with princess Tamina to thwart the evil plans of his uncle Nixam, who wants to control time with the help of special dagger.",
     Boxoffice: "$336.4 million",
     imgURL:  "../../assets/img/Prince of persia.jpg",
-    type:  "",
+    type:  "adventure",
     tags: ["Harry williams","Gemma Arterton","Ben Kngsley"],
 },
 {
@@ -61,8 +69,17 @@ export class ContentListComponent implements OnInit {
     About: "Renowwed assassin John Wick sets out for Rome to duel with some of the deadliest killers to fulfill a vow he made. However, he soon learns that there is a huge bounty on his head.",
     Boxoffice: "$171.5 million",
     imgURL:  "../../assets/img/John wick 2.jpg",
-    type:  "",
+    type:  "action",
     tags: ["Basil Iwanyk","Erica Lee"],
+},
+{
+  id: 7,
+    Movie: "House of Gucci",
+    About: "When Patrizia Reggiani, an outsider from humble beginnings, marries into the Gucci family, her unbridled ambition begins to unravel their legacy and triggers a reckless spiral of betrayal, decadence, revenge, and ultimately...murder.",
+    Boxoffice: "$170.3 milliom",
+    imgURL:  '../../assets/img/House of gucci.jpg',
+    type:  "",
+    tags: ["Ridley Scott"],
 }]
 
   constructor() { }
@@ -70,8 +87,16 @@ export class ContentListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onClick(index:any){
-    console.log("Index No:", index, "Movie:", this.movies[index].Movie);
+  searchMovieList(movieName:any){
+    console.log(movieName);
+    this.movieExists = false;
+    this.movieNotExists = false;
+
+    if(movieName.trim()===""){return}
+    
+    let result = this.movies.find(item => item.Movie.toLocaleLowerCase().includes(movieName.toLocaleLowerCase()))
+    console.log("result", result);
+    result ?  this.movieExists = true : this.movieNotExists = true;
   }
 
 }

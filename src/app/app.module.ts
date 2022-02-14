@@ -4,17 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { PipelistPipe } from './pipelist.pipe';
-import { HighlightDirective } from './highlight.directive';
+
 
 import { ContentListComponent } from './content-list/content-list.component';
+import { MovietypePipe } from './movietype.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent,    
-    PipelistPipe,
-    HighlightDirective,    
-    ContentListComponent
+    AppComponent,        
+    ContentListComponent, MovietypePipe
   ],
   imports: [
     BrowserModule,

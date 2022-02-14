@@ -1,14 +1,74 @@
-<h1 style="color: Green;font-size: 40px;margin-left: 7%;">MOVIES:</h1>
-<div >
-    <div *ngFor="let movie of movies; let x = index" >
-        <div [ngClass]="(x > 0) ? mycard: moviee">
+<h2 style="text-align:center;color:blue;background-color: yellow;">SEARCH OUT YOUR MOVIE!</h2>
+<div class="searchbarcenter">    
+        <input type="text" placeholder="Search.." #movieName name="search">
+        <button (click)="searchMovieList(movieName.value)">FIND</button>
+      
+</div>
+
+<div class="searchbarcenter">
+    <h1 class="movieExists" *ngIf="movieExists">MOVIE EXISTS</h1>
+    <h1 class="movieNotExists" *ngIf="movieNotExists">MOVIE DOES NOT EXISTS</h1>
+</div>
+
+<h1 class="movieType">TYPE OF MOVIE-UNKNOWN!</h1>
+<div class="movieContainer">
+    <div *ngFor="let movie of movies | movietype:notype" >
+        <div [ngClass]="mycard">
         <p style="text-align:center;"><b>ID:</b>   {{movie.id}}</p>
         <p style="text-align:center; font-size: 25px; color: blue;background-color: aqua; "><b >MOVIE:</b>  {{movie.Movie}}</p>
-        <img style="margin-left:60px;" (click)="onClick(x)" src="{{movie.imgURL}}" height="300px" width="250px"  >
-        <p style="text-align: justify;"><b style="color:rgb(199, 77, 21); background-color: rgb(233, 233, 131);">ABOUT:</b>  {{movie.About}}</p>
+        <img style="margin-left:60px;" src="{{movie.imgURL}}" height="300px" width="250px"  >
+        <p class="about" style="text-align: justify;"><b style="color:rgb(199, 77, 21); background-color: rgb(233, 233, 131);">ABOUT:</b>  {{movie.About}}</p>
         <p ><b style="color:purple;background-color:  rgb(233, 233, 131);">BOX OFFICE COLLECTION:</b>  {{movie.Boxoffice}}</p>
-        <p ><b style="color:orangered;">DIRECTORS:<span *ngFor="let size of movie?.tags">{{" "}}{{ size }}</span></b></p>
+        <p class="direction"><b style="color:orangered;">DIRECTORS:<span *ngFor="let size of movie?.tags">{{" "}}{{ size }}</span></b></p>
+        <p class="type"><b style="color:rgb(199, 77, 21); background-color: rgb(233, 233, 131);">TYPE:</b>  {{movie.type}}</p>
     </div>
     </div>
 </div>
+
+<h1 class="movieType">ACTION</h1>
+<div class="movieContainer">
+    <div *ngFor="let movie of movies | movietype:action" >
+        <div [ngClass]="movie.type">
+        <p style="text-align:center;"><b>ID:</b>   {{movie.id}}</p>
+        <p style="text-align:center; font-size: 25px; color: blue;background-color: aqua; "><b >MOVIE:</b>  {{movie.Movie}}</p>
+        <img style="margin-left:60px;" src="{{movie.imgURL}}" height="300px" width="250px"  >
+        <p class="about" style="text-align: justify;"><b style="color:rgb(199, 77, 21); background-color: rgb(233, 233, 131);">ABOUT:</b>  {{movie.About}}</p>
+        <p ><b style="color:purple;background-color:  rgb(233, 233, 131);">BOX OFFICE COLLECTION:</b>  {{movie.Boxoffice}}</p>
+        <p class="direction"><b style="color:orangered;">DIRECTORS:<span *ngFor="let size of movie?.tags">{{" "}}{{ size }}</span></b></p>
+        <p class="type"><b style="color:rgb(199, 77, 21); background-color: rgb(233, 233, 131);">TYPE:</b>  {{movie.type}}</p>
+    </div>
+    </div>
+</div>
+
+<h1 class="movieType">ADVENTURE</h1>
+<div class="movieContainer">
+    <div *ngFor="let movie of movies | movietype:adventure" >
+        <div [ngClass]="movie.type">
+        <p style="text-align:center;"><b>ID:</b>   {{movie.id}}</p>
+        <p style="text-align:center; font-size: 25px; color: blue;background-color: aqua; "><b >MOVIE:</b>  {{movie.Movie}}</p>
+        <img style="margin-left:60px;" src="{{movie.imgURL}}" height="300px" width="250px"  >
+        <p class="about" style="text-align: justify;"><b style="color:rgb(199, 77, 21); background-color: rgb(233, 233, 131);">ABOUT:</b>  {{movie.About}}</p>
+        <p ><b style="color:purple;background-color:  rgb(233, 233, 131);">BOX OFFICE COLLECTION:</b>  {{movie.Boxoffice}}</p>
+        <p class="direction"><b style="color:orangered;">DIRECTORS:<span *ngFor="let size of movie?.tags">{{" "}}{{ size }}</span></b></p>
+        <p class="type"><b style="color:rgb(199, 77, 21); background-color: rgb(233, 233, 131);">TYPE:</b>  {{movie.type}}</p>
+    </div>
+    </div>
+</div>
+
+<h1 class="movieType">DRAMA:</h1>
+<div class="movieContainer">
+    <div *ngFor="let movie of movies | movietype:drama" >
+        <div [ngClass]="movie.type">
+        <p style="text-align:center;"><b>ID:</b>   {{movie.id}}</p>
+        <p style="text-align:center; font-size: 25px; color: blue;background-color: aqua; "><b >MOVIE:</b>  {{movie.Movie}}</p>
+        <img style="margin-left:60px;" src="{{movie.imgURL}}" height="300px" width="250px"  >
+        <p class="about" style="text-align: justify;"><b style="color:rgb(199, 77, 21); background-color: rgb(233, 233, 131);">ABOUT:</b>  {{movie.About}}</p>
+        <p ><b style="color:purple;background-color:  rgb(233, 233, 131);">BOX OFFICE COLLECTION:</b>  {{movie.Boxoffice}}</p>
+        <p class="direction"><b style="color:orangered;">DIRECTORS:<span *ngFor="let size of movie?.tags">{{" "}}{{ size }}</span></b></p>
+        <p class="type"><b style="color:rgb(199, 77, 21); background-color: rgb(233, 233, 131);">TYPE:</b>  {{movie.type}}</p>
+    </div>
+    </div>
+</div>
+
+
 
