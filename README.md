@@ -1,4 +1,4 @@
-Made by Arsh Luthra Student No 0777039 Date Modified 02/13/2022                                     
+
 
 # ALuthraWorlwideFamousMovies
 

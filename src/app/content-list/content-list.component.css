@@ -94,3 +94,8 @@ button {
       color: red;
   }
 
+  .types, .tags{
+    margin-left: 10px;
+    text-transform: uppercase;
+  }
+

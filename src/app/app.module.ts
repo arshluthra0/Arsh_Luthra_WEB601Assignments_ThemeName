@@ -8,11 +8,12 @@ import { AppComponent } from './app.component';
 
 import { ContentListComponent } from './content-list/content-list.component';
 import { MovietypePipe } from './movietype.pipe';
+import { HoverEffectDirective } from './directive/hover-effect.directive';
 
 @NgModule({
   declarations: [
     AppComponent,        
-    ContentListComponent, MovietypePipe
+    ContentListComponent, MovietypePipe, HoverEffectDirective
   ],
   imports: [
     BrowserModule,
