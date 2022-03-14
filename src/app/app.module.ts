@@ -3,24 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListComponent } from './list/list.component';
-import { PipelistPipe } from './pipelist.pipe';
-import { HighlightDirective } from './highlight.directive';
-import { ContentCardComponent } from './content-card/content-card.component';
 
+import { ContentListComponent } from './content-list/content-list.component';
+import { MovietypePipe } from './movietype.pipe';
+import { HoverEffectDirective } from './directive/hover-effect.directive';
+import { CreateContentComponent } from './create-content/create-content.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    ListComponent,
-    PipelistPipe,
-    HighlightDirective,
-    ContentCardComponent
+    ContentListComponent,
+    MovietypePipe,
+    HoverEffectDirective,
+    CreateContentComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

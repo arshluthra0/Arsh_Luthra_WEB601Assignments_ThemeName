@@ -1,0 +1,63 @@
+<app-create-content
+  (newContentEvent)="addContentToParent($event)"
+></app-create-content>
+<div class="search">
+    <input #search>
+    <button (click)="checkForTitle(search.value)">Check For Title</button>
+    <h4 class="success" *ngIf="searchFlag">Title found</h4>
+    <h4 class="fail" *ngIf="!searchFlag">Title not found</h4>
+    <!--  <div [class.success]="searchFlag" [class.fail]="!searchFlag"> {{ searchMessage }} </div>-->
+  </div>
+<h1 class="movieType">MOVIE LIST</h1>
+<div class="movieContainer">
+  <div *ngFor="let movie of movies">
+    <div class="mycard">
+      <p style="text-align:center;"><b>ID:</b> {{ movie.id }}</p>
+      <p
+        style="text-align:center; font-size: 25px; color: blue;background-color: aqua; "
+      >
+        <b>MOVIE:</b> {{ movie.title }}
+      </p>
+      <img
+        *ngIf="movie.imgURL"
+        style="margin-left:60px;"
+        src="{{ movie.imgURL }}"
+        height="300px"
+        width="250px"
+      />
+      <img
+        *ngIf="!movie.imgURL"
+        style="margin-left:60px;"
+        src="{{ noImageAvailable }}"
+        height="300px"
+        width="250px"
+      />
+      <p class="about" style="text-align: justify;">
+        <b style="color:rgb(199, 77, 21); background-color: rgb(233, 233, 131);"
+          >ABOUT:</b
+        >
+        {{ movie.description }}
+      </p>
+      <p>
+        <b style="color:purple;background-color:  rgb(233, 233, 131);"
+          >BOX OFFICE COLLECTION:</b
+        >
+        {{ movie.creator }}
+      </p>
+      <p class="direction">
+        <b> DIRECTORS:</b
+        ><span *ngFor="let tag of movie?.tags" class="tags" appHoverEffect>{{
+          tag
+        }}</span>
+      </p>
+      <p class="type">
+        <b style="color:rgb(199, 77, 21); background-color: rgb(233, 233, 131);"
+          >TYPE:</b
+        >
+        <span *ngFor="let type of movie.type" class="types" appHoverEffect>{{
+          type
+        }}</span>
+      </p>
+    </div>
+  </div>
+</div>
