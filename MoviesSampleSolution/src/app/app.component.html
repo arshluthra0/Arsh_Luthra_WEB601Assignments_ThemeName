@@ -1,0 +1,50 @@
+<!-- <div>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Select an id number to display</mat-label>
+    <input matInput placeholder="0" type="number" #id>
+  </mat-form-field>
+  <button mat-flat-button color="accent" (click)="displayMovieItem(id.value)">Display Movie</button>
+</div>
+<app-content-card [movie]="someMovie" class="single-item-on-app-component"></app-content-card>
+
+
+<mat-divider></mat-divider>
+<app-content-list></app-content-list> -->
+
+<router-outlet></router-outlet>
+<app-messages></app-messages>
+
+<mat-toolbar color="primary" class="example-toolbar">Book App</mat-toolbar>
+<mat-sidenav-container color="primary"  class="example-container">
+  <mat-sidenav class="custom-sidenav" mode="side" opened>
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        <mat-icon >home</mat-icon>
+        <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          Home</a>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-icon >event_note</mat-icon>
+        <a routerLink="list" routerLinkActive="active">Book List</a>
+      </mat-list-item>
+      <div class="side-nav-child">
+        <mat-list-item role="listitem">
+          <mat-icon >event_note</mat-icon>
+          <a routerLink="list/42" routerLinkActive="active">Book InDetail</a>
+        </mat-list-item>
+      </div>
+      <mat-list-item role="listitem">
+        <mat-icon >mood_bad</mat-icon>
+        <a routerLink="pagewillnotbefound" routerLinkActive="active">Invalid page</a>
+      </mat-list-item>
+      <mat-list-item>
+         <mat-icon >mood_good</mat-icon>
+        <a href="https://github.com/arshluthra0/Arsh_Luthra_WEB601Assignments_ThemeName" target="_blank" routerLinkActive="active">Github Repo</a>
+      </mat-list-item>
+    </mat-list>
+    
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

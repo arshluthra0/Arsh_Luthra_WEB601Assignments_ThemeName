@@ -1,0 +1,34 @@
+<a mat-flat-button color="warn" routerLink="/dontclickthelink">Don't click this link!</a>
+
+<app-modify-content-component (newContentEvent)="addContentToList($event)"></app-modify-content-component>
+
+<div class="search">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Search</mat-label>
+    <input matInput #search>
+  </mat-form-field>
+  <button mat-flat-button color="primary" (click)="checkForTitle(search.value)">Check For Title</button>
+  <h4 class="success" *ngIf="searchFlag === true">Title found</h4>
+  <h4 class="fail" *ngIf="searchFlag === false">Title not found</h4>
+  <!--  <div [class.success]="searchFlag" [class.fail]="!searchFlag"> {{ searchMessage }} </div>-->
+</div>
+
+<app-content-card appHoverAffect elementType="card" [firstOrLast]="isFirstMovieOnList || isLast"
+  *ngFor="let item of (movieList | contentTypeFilter); first as isFirstMovieOnList; last as isLast"
+  [class.first-movie]="isFirstMovieOnList" [movie]="item" class="notype" [class.found]="item.title == search.value">
+</app-content-card>
+
+<app-content-card appHoverAffect elementType="card" [firstOrLast]="isFirstMovieOnList || isLast"
+  *ngFor="let item of (movieList | contentTypeFilter: 'drama'); first as isFirstMovieOnList; last as isLast"
+  [class.first-movie]="isFirstMovieOnList" [movie]="item" class="drama" [class.found]="item.title == search.value">
+</app-content-card>
+
+<app-content-card appHoverAffect elementType="card" [firstOrLast]="isFirstMovieOnList || isLast"
+  *ngFor="let item of (movieList | contentTypeFilter: 'sci-fi'); first as isFirstMovieOnList; last as isLast"
+  [class.first-movie]="isFirstMovieOnList" [movie]="item" class="sci-fi" [class.found]="item.title == search.value">
+</app-content-card>
+
+<!-- <app-content-card appHoverAffect elementType="card" [firstOrLast]="isFirstMovieOnList || isLast"
+  *ngFor="let item of (movieList | contentTypeFilter: 'cartoon'); first as isFirstMovieOnList; last as isLast"
+  [class.first-movie]="isFirstMovieOnList" [movie]="item" class="cartoon" [class.found]="item.title == search.value">
+</app-content-card> -->
